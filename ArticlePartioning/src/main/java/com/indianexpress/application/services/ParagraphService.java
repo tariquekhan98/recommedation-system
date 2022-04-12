@@ -9,6 +9,7 @@ import com.indianexpress.application.shared.exceptions.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.*;
 
 @Service
@@ -61,7 +62,7 @@ public class ParagraphService {
         return paragraph;
     }
 
-    public Paragraph save(HashMap<?,?> requestBody, Object id, Paragraph previousParagraph) throws ValidationException, NotFoundException {
+    public Paragraph save(HashMap<?,?> requestBody, Object id, Paragraph previousParagraph) throws ValidationException, NotFoundException, IOException {
         Paragraph instance=getInstance(id);
         Map<String,Object> validatedData= validate(instance,requestBody);
         Paragraph paragraph = getInstanceInstantiatedWithValidatedData(instance,validatedData);

@@ -46,6 +46,8 @@ public class WordService {
         Map<String, Object> validatedData = new HashMap<String, Object>();
         validatedData.put("title", requestBody.get("title"));
         validatedData.put("word", validateWord(instance, requestBody.get("word")));
+        validatedData.put("tag", requestBody.get("tag"));
+        validatedData.put("lemma", requestBody.get("lemma"));
         return validatedData;
     }
 
@@ -57,6 +59,8 @@ public class WordService {
 
         word.setTitle((String) validatedData.get("title"));
         word.setWord((String)validatedData.get("word"));
+        word.setTag((String) validatedData.get("tag"));
+        word.setLemma((String) validatedData.get("lemma"));
         return word;
     }
 

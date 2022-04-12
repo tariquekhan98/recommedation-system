@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 @RestController
@@ -25,7 +26,7 @@ public class Controller {
         try{
             return new ResponseEntity(articleService.save(requestBody,null), HttpStatus.CREATED);
         }
-        catch(ValidationException e){
+        catch(ValidationException | IOException e){
             return new ResponseEntity(new StdResponse(e.getMessage()).getMappedResponse(), HttpStatus.BAD_REQUEST);
         }
         catch(NotFoundException e){

@@ -12,6 +12,10 @@ public class Word {
 
     private String word;
 
+    private String tag;
+
+    private String lemma;
+
     @Relationship(type="NEXT",direction = Relationship.INCOMING)
     private Word previousWord;
 
@@ -37,6 +41,18 @@ public class Word {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public String getTag() {return tag;}
+
+    public void setTag(String tag) {this.tag = tag;}
+
+    public String getLemma() {
+        return lemma;
+    }
+
+    public void setLemma(String lemma) {
+        this.lemma = lemma;
     }
 
     public Word getPreviousWord() {

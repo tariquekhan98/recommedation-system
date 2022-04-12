@@ -8,6 +8,7 @@ import com.indianexpress.application.shared.exceptions.ValidationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.*;
 
 @Service
@@ -74,7 +75,7 @@ public class ArticleService {
         return article;
     }
 
-    public Article save(HashMap<?,?> requestBody, Object id) throws ValidationException, NotFoundException {
+    public Article save(HashMap<?,?> requestBody, Object id) throws ValidationException, NotFoundException, IOException {
         Article instance=getInstance(id);
         Map<String,Object> validatedData= validate(instance,requestBody);
         Article article = getInstanceInstantiatedWithValidatedData(instance,validatedData);
